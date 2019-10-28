@@ -23,3 +23,16 @@ G:\C# PROJECTS\VScreamer\VScreamer\obj\Debug\VScreamer.pdb
 G:\C# PROJECTS\VScreamer\VScreamer\obj\Debug\Interop.MediaPlayer.dll
 G:\C# PROJECTS\VScreamer\VScreamer\obj\Debug\Interop.WMPLib.dll
 G:\C# PROJECTS\VScreamer\VScreamer\obj\Debug\VScreamer.csproj.ResolveComReference.cache
+E:\Programas\Github_repos\V-Screamer\VScreamer\bin\Debug\VScreamer.exe.config
+E:\Programas\Github_repos\V-Screamer\VScreamer\bin\Debug\VScreamer.exe
+E:\Programas\Github_repos\V-Screamer\VScreamer\bin\Debug\VScreamer.pdb
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.csprojAssemblyReference.cache
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\Interop.MediaPlayer.dll
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\Interop.WMPLib.dll
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.csproj.ResolveComReference.cache
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.Properties.Resources.resources
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.UI.TestRoom.resources
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.csproj.GenerateResource.cache
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.csproj.CoreCompileInputs.cache
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.exe
+E:\Programas\Github_repos\V-Screamer\VScreamer\obj\Debug\VScreamer.pdb

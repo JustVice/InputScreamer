@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,8 +22,24 @@ namespace VScreamer.UI
 
         private void UI_SETTINGS()
         {
+            //FORM CENTERED ON SCREEN
+            this.StartPosition = FormStartPosition.CenterScreen;
+
             //MAKES IMPOSIBLE TO MAXIMIZE THE FORM.
             this.MaximizeBox = false;
+            ADD_ITEMS_INSIDE_LISTBOX();
+        }
+
+        private void ADD_ITEMS_INSIDE_LISTBOX()
+        {
+            ListBoxItem temp = new ListBoxItem("Item1", "info1", "info22", "info333");
+            ListBoxItem temp2 = new ListBoxItem("Item2", "info1", "info22", "info333");
+            ListBoxItem temp3 = new ListBoxItem("Item3", "info1", "info22", "info333");
+            ListBoxItem temp4 = new ListBoxItem("Item4", "info1", "info22", "info333");
+            this.listBox1.Items.Add(temp);
+            this.listBox1.Items.Add(temp2);
+            this.listBox1.Items.Add(temp3);
+            this.listBox1.Items.Add(temp4);
         }
 
         private Boolean BORDER_STYLE_SHOWING = true;
@@ -172,5 +189,176 @@ namespace VScreamer.UI
                 player.Play(); //in same thread
             }
         }
+
+        private void button2_get_screen_resolution_Click(object sender, EventArgs e)
+        {
+            //GETS SCREEN RESOLUTION DIMENTIONS
+            string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
+            string screenHeight = Screen.PrimaryScreen.Bounds.Height.ToString();
+
+            MessageBox.Show("Screen resolution: " + screenWidth + "x" + screenHeight);
+        }
+
+        private void button2_set_form_with_screen_resolution_Click(object sender, EventArgs e)
+        {
+            //CHANGES FORM SIZE TO THE SAME AS THE SCREEN RESOLUTION
+            string screenWidth = Screen.PrimaryScreen.Bounds.Width.ToString();
+            string screenHeight = Screen.PrimaryScreen.Bounds.Height.ToString();
+
+            int screenWidth_INT = Int32.Parse(screenWidth);
+            int screenHeight_INT = Int32.Parse(screenHeight);
+
+            this.Size = new System.Drawing.Size(screenWidth_INT, screenHeight_INT);
+
+            //ALSO MOVES THE FORM TO X=0 Y=0 POSITION
+            this.Location = new Point(0, 0);
+        }
+
+        #region ListBoxItem object
+
+        class ListBoxItem
+        {
+            public String itemName { get; set; }
+            public String itemInfo1 { get; set; }
+            public String itemInfo2 { get; set; }
+            public String itemInfo3 { get; set; }
+            public int id { get; set; }
+
+            public ListBoxItem()
+            {
+                Random rnd = new Random();
+                this.id = rnd.Next(1, 9999999);
+            }
+
+            public ListBoxItem(string itemName,
+                string itemInfo1,
+                string itemInfo2,
+                string itemInfo3)
+            {
+                this.itemName = itemName;
+                this.itemInfo1 = itemInfo1;
+                this.itemInfo2 = itemInfo2;
+                this.itemInfo3 = itemInfo3;
+                Random rnd = new Random();
+                this.id = rnd.Next(1, 9999999);
+            }
+
+            public override string ToString()
+            {
+                return this.itemName;
+            }
+        }
+        #endregion
+
+        private void button2_add_item_on_list_Click(object sender, EventArgs e)
+        {
+            //ADDS OBJECTS INSIDE LIST.
+
+            string ITEM_NAME = this.textBox1_add_item_on_list.Text;
+            if (ITEM_NAME != "")
+            {
+                ListBoxItem item = new ListBoxItem(ITEM_NAME, "info1", "info22", "info333");
+                this.listBox1.Items.Add(item);
+                this.textBox1_add_item_on_list.Text = "";
+            }
+        }
+
+        private void button2_delete_selected_item_Click(object sender, EventArgs e)
+        {
+            //REMOVES ITEMS FROM LISTBOX
+
+            ListBoxItem SELECTED_ITEM = this.listBox1.SelectedItem as ListBoxItem;
+            if (SELECTED_ITEM != null)
+            {
+                ListBoxItem TEMP_FILE;
+
+                for (int i = 0; i < this.listBox1.Items.Count; i++)
+                {
+                    TEMP_FILE = listBox1.Items[i] as ListBoxItem;
+                    if (TEMP_FILE.id == SELECTED_ITEM.id)
+                    {
+                        listBox1.Items.RemoveAt(i);
+                    }
+                }
+            }
+        }
+
+        private void listbox1_click(object sender, EventArgs e)
+        {
+            //WHEN AN ITEM IS SELECTED INSIDE THE LISTBOX, THE ITEM'S NAME WILL BE
+            //SHOWN INSIDE THE EDIT TEXTBOX.
+
+            ListBoxItem SELECTED_ITEM = this.listBox1.SelectedItem as ListBoxItem;
+            if (SELECTED_ITEM != null)
+                this.textBox1_edit_file_name.Text = SELECTED_ITEM.itemName;
+        }
+
+        private void button2_edit_file_name_Click(object sender, EventArgs e)
+        {
+            //EDITS LISTBOX ITEMS.
+
+            ListBoxItem SELECTED_ITEM = this.listBox1.SelectedItem as ListBoxItem;
+            if (SELECTED_ITEM != null)
+            {
+                ListBoxItem ITEM_SEATCH;
+
+                for (int i = 0; i < this.listBox1.Items.Count; i++)
+                {
+                    ITEM_SEATCH = listBox1.Items[i] as ListBoxItem;
+                    if (ITEM_SEATCH.id == SELECTED_ITEM.id)
+                    {
+                        SELECTED_ITEM.itemName = this.textBox1_edit_file_name.Text;
+                        listBox1.Items.RemoveAt(i);
+                        listBox1.Items.Insert(i, SELECTED_ITEM);
+                        this.textBox1_edit_file_name.Text = "";
+                    }
+                }
+
+            }
+        }
+
+        #region Threads
+
+        private void button2_run_thread_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(RUN_THREAD_METHOD);
+            t.Start();
+        }
+
+        private void RUN_THREAD_METHOD()
+        {
+            //CHANGES A LABEL INFO WITH THREAD
+            //SOURCE:https://social.msdn.microsoft.com/Forums/vstudio/en-US/a83a8655-76b8-4225-b38d-3b33eb67aafc/c-threading-changing-label?forum=csharpgeneral
+
+            for (int i = 0; i < 2000; i++)
+            {
+                    this.Invoke((MethodInvoker)delegate ()
+                    {
+                        this.label1_thread_counter.Text = "Thread counter: " + i;
+                    });
+                Thread.Sleep(100);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Thread t = new Thread(RUN_THREAD_METHOD2);
+            t.Start();
+        }
+
+        private void RUN_THREAD_METHOD2()
+        {
+            for (int i = 0; i < 2000; i++)
+            {
+                this.Invoke((MethodInvoker)delegate ()
+                {
+                    this.label1_thread_counter_2.Text = "Thread counter: " + i;
+                });
+                Thread.Sleep(100);
+            }
+        }
+
+        #endregion
+
     }
 }
