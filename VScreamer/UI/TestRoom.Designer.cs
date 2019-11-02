@@ -54,6 +54,7 @@
             this.label1_thread_counter = new System.Windows.Forms.Label();
             this.label1_thread_counter_2 = new System.Windows.Forms.Label();
             this.button2_run_thread_2 = new System.Windows.Forms.Button();
+            this.button2_global_hotkey_set = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1_load_image_and_show)).BeginInit();
             this.SuspendLayout();
             // 
@@ -301,11 +302,22 @@
             this.button2_run_thread_2.UseVisualStyleBackColor = true;
             this.button2_run_thread_2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button2_global_hotkey_set
+            // 
+            this.button2_global_hotkey_set.Location = new System.Drawing.Point(401, 174);
+            this.button2_global_hotkey_set.Name = "button2_global_hotkey_set";
+            this.button2_global_hotkey_set.Size = new System.Drawing.Size(187, 23);
+            this.button2_global_hotkey_set.TabIndex = 26;
+            this.button2_global_hotkey_set.Text = "Global hotkey set";
+            this.button2_global_hotkey_set.UseVisualStyleBackColor = true;
+            this.button2_global_hotkey_set.Click += new System.EventHandler(this.button2_global_hotkey_set_Click);
+            // 
             // TestRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 413);
+            this.Controls.Add(this.button2_global_hotkey_set);
             this.Controls.Add(this.label1_thread_counter_2);
             this.Controls.Add(this.button2_run_thread_2);
             this.Controls.Add(this.label1_thread_counter);
@@ -368,5 +380,6 @@
         private System.Windows.Forms.Label label1_thread_counter;
         private System.Windows.Forms.Label label1_thread_counter_2;
         private System.Windows.Forms.Button button2_run_thread_2;
+        private System.Windows.Forms.Button button2_global_hotkey_set;
     }
 }

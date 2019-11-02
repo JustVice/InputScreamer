@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -359,6 +360,51 @@ namespace VScreamer.UI
         }
 
         #endregion
+        // 2. Import the RegisterHotKey Method
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+        private void button2_global_hotkey_set_Click(object sender, EventArgs e)
+        {
+            
+        // 3. Register HotKey
 
+        // Set an unique id to your Hotkey, it will be used to
+        // identify which hotkey was pressed in your code to execute something
+        int UniqueHotkeyId = 1;
+            // Set the Hotkey triggerer the F9 key 
+            // Expected an integer value for F9: 0x78, but you can convert the Keys.KEY to its int value
+            // See: https://msdn.microsoft.com/en-us/library/windows/desktop/dd375731(v=vs.85).aspx
+            int HotKeyCode = (int)Keys.F9;
+            // Register the "F9" hotkey
+            Boolean F9Registered = RegisterHotKey(
+                this.Handle, UniqueHotkeyId, 0x0000, HotKeyCode
+            );
+
+            // 4. Verify if the hotkey was succesfully registered, if not, show message in the console
+            if (F9Registered)
+            {
+                Console.WriteLine("Global Hotkey F9 was succesfully registered");
+            }
+            else
+            {
+                Console.WriteLine("Global Hotkey F9 couldn't be registered !");
+            }
+            protected override void WndProc(ref Message m)
+        {
+            // 5. Catch when a HotKey is pressed !
+            if (m.Msg == 0x0312)
+            {
+                int id = m.WParam.ToInt32();
+                // MessageBox.Show(string.Format("Hotkey #{0} pressed", id));
+
+                if (id == 1)
+                {
+                    MessageBox.Show("F9 Was pressed !");
+                }
+            }
+
+            base.WndProc(ref m);
+        }
+    }
     }
 }
