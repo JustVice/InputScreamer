@@ -365,7 +365,11 @@ namespace VScreamer.UI
         private void button2_global_hotkey_set_Click(object sender, EventArgs e)
         {
         }
-           
+
+        private void button_hideForm_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
     
 }

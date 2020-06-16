@@ -55,6 +55,7 @@
             this.label1_thread_counter_2 = new System.Windows.Forms.Label();
             this.button2_run_thread_2 = new System.Windows.Forms.Button();
             this.button2_global_hotkey_set = new System.Windows.Forms.Button();
+            this.button_hideForm = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1_load_image_and_show)).BeginInit();
             this.SuspendLayout();
             // 
@@ -312,11 +313,22 @@
             this.button2_global_hotkey_set.UseVisualStyleBackColor = true;
             this.button2_global_hotkey_set.Click += new System.EventHandler(this.button2_global_hotkey_set_Click);
             // 
+            // button_hideForm
+            // 
+            this.button_hideForm.Location = new System.Drawing.Point(401, 204);
+            this.button_hideForm.Name = "button_hideForm";
+            this.button_hideForm.Size = new System.Drawing.Size(187, 23);
+            this.button_hideForm.TabIndex = 27;
+            this.button_hideForm.Text = "Hide form";
+            this.button_hideForm.UseVisualStyleBackColor = true;
+            this.button_hideForm.Click += new System.EventHandler(this.button_hideForm_Click);
+            // 
             // TestRoom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(604, 413);
+            this.Controls.Add(this.button_hideForm);
             this.Controls.Add(this.button2_global_hotkey_set);
             this.Controls.Add(this.label1_thread_counter_2);
             this.Controls.Add(this.button2_run_thread_2);
@@ -381,5 +393,6 @@
         private System.Windows.Forms.Label label1_thread_counter_2;
         private System.Windows.Forms.Button button2_run_thread_2;
         private System.Windows.Forms.Button button2_global_hotkey_set;
+        private System.Windows.Forms.Button button_hideForm;
     }
 }

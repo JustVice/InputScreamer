@@ -49,3 +49,15 @@ C:\Users\ulacit\Desktop\V-Screamer\VScreamer\obj\Debug\VScreamer.csproj.Generate
 C:\Users\ulacit\Desktop\V-Screamer\VScreamer\obj\Debug\VScreamer.csproj.CoreCompileInputs.cache
 C:\Users\ulacit\Desktop\V-Screamer\VScreamer\obj\Debug\VScreamer.exe
 C:\Users\ulacit\Desktop\V-Screamer\VScreamer\obj\Debug\VScreamer.pdb
+C:\Users\VICE\Desktop\scream\VScreamer\bin\Debug\VScreamer.exe.config
+C:\Users\VICE\Desktop\scream\VScreamer\bin\Debug\VScreamer.exe
+C:\Users\VICE\Desktop\scream\VScreamer\bin\Debug\VScreamer.pdb
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.csprojAssemblyReference.cache
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\Interop.MediaPlayer.dll
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\Interop.WMPLib.dll
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.csproj.ResolveComReference.cache
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.Properties.Resources.resources
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.UI.TestRoom.resources
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.csproj.GenerateResource.cache
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.exe
+C:\Users\VICE\Desktop\scream\VScreamer\obj\Debug\VScreamer.pdb
